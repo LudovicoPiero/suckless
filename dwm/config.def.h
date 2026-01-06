@@ -18,12 +18,12 @@ static int topbar             = 1;        /* 0 means bottom bar */
 static char font[]            = "Iosevka:size=14";
 static char dmenufont[]       = "Iosevka:size=14";
 static const char *fonts[]          = { font };
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
-static char normfgcolor[]           = "#bbbbbb";
-static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
-static char selbgcolor[]            = "#005577";
+static char normbgcolor[]           = "#1a1b26";
+static char normbordercolor[]       = "#414868";
+static char normfgcolor[]           = "#a9b1d6";
+static char selfgcolor[]            = "#1a1b26";
+static char selbordercolor[]        = "#7aa2f7";
+static char selbgcolor[]            = "#7aa2f7";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -40,63 +40,70 @@ static const Rule rules[] = {
 	 */
 	/* class                     instance    title                           tags mask     isfloating   monitor */
 
-	/* --- Workspace 9: Email --- */
-	{ "Thunderbird",             NULL,       NULL,                           1 << 8,       0,           -1 },
-
-	/* --- Workspace 8: Whatsapp --- */
-	{ "whatsapp-for-linux",      NULL,       NULL,                           1 << 7,       0,           -1 },
-
-	/* --- Workspace 7: Torrent --- */
-	{ "qBittorrent",             NULL,       NULL,                           1 << 6,       0,           -1 },
-	{ "org.qbittorrent.qBittorrent", NULL,   NULL,                           1 << 6,       0,           -1 },
-
-	/* --- Workspace 6: Steam --- */
-	{ "Steam",                   NULL,       NULL,                           1 << 5,       0,           -1 },
-	{ "steam",                   NULL,       NULL,                           1 << 5,       0,           -1 },
-	{ "Steam",                   NULL,       "Special Offers",               1 << 5,       1,           -1 },
-	{ "Steam",                   NULL,       "Steam - News",                 1 << 5,       1,           -1 },
-	{ "Steam",                   NULL,       "Friends List",                 1 << 5,       1,           -1 },
-
-	/* --- Workspace 5: Media --- */
-	{ "Spotify",                 NULL,       NULL,                           1 << 4,       0,           -1 },
-	{ "fooyin",                  NULL,       NULL,                           1 << 4,       0,           -1 },
-	{ "tidal-hifi",              NULL,       NULL,                           1 << 4,       0,           -1 },
-	{ "foobar2000.exe",          NULL,       NULL,                           1 << 4,       0,           -1 },
-
-	/* --- Workspace 4: Communication --- */
-	{ "TelegramDesktop",         NULL,       NULL,                           1 << 3,       0,           -1 },
-	{ "org.telegram.desktop",    NULL,       NULL,                           1 << 3,       0,           -1 },
-	{ "TelegramDesktop",         NULL,       "Media viewer",                 1 << 3,       1,           -1 },
-
-	/* --- Workspace 3: Discord/Vesktop --- */
-	{ "vesktop",                 NULL,       NULL,                           1 << 2,       0,           -1 },
-	{ "discord",                 NULL,       NULL,                           1 << 2,       0,           -1 },
-	{ "WebCord",                 NULL,       NULL,                           1 << 2,       0,           -1 },
-
-	/* --- Workspace 2: Browsers --- */
-	{ "Firefox",                 NULL,       NULL,                           1 << 1,       0,           -1 },
-	{ "Brave-browser",           NULL,       NULL,                           1 << 1,       0,           -1 },
-	{ "Chromium",                NULL,       NULL,                           1 << 1,       0,           -1 },
-	{ "zen",                     NULL,       NULL,                           1 << 1,       0,           -1 },
-	{ "zen-beta",                NULL,       NULL,                           1 << 1,       0,           -1 },
-	{ "floorp",                  NULL,       NULL,                           1 << 1,       0,           -1 },
-
-	/* --- Workspace 1: Dev / Games --- */
+	/* Workspace 1: Dev & Games */
 	{ "jetbrains",               NULL,       NULL,                           1 << 0,       0,           -1 },
 	{ "Albion-Online",           NULL,       NULL,                           1 << 0,       0,           -1 },
 
-	/* --- Utilities / Floating --- */
-	{ NULL,                      NULL,       "Bitwarden Password Manager",   0,            1,           -1 },
+	/* Workspace 2: Firefox */
+	{ "firefox",                 NULL,       NULL,                           1 << 1,       0,           -1 },
+	{ "firefox-esr",             NULL,       NULL,                           1 << 1,       0,           -1 },
+	{ "floorp",                  NULL,       NULL,                           1 << 1,       0,           -1 },
+
+	/* Workspace 3: Zen & Chromium */
+	{ "zen",                     NULL,       NULL,                           1 << 2,       0,           -1 },
+	{ "zen-beta",                NULL,       NULL,                           1 << 2,       0,           -1 },
+	{ "zen-browser",             NULL,       NULL,                           1 << 2,       0,           -1 },
+	{ "Brave-browser",           NULL,       NULL,                           1 << 2,       0,           -1 },
+	{ "Chromium-browser",        NULL,       NULL,                           1 << 2,       0,           -1 },
+	{ "chromium-browser",        NULL,       NULL,                           1 << 2,       0,           -1 },
+	{ "Google-chrome",           NULL,       NULL,                           1 << 2,       0,           -1 },
+	{ "chrome",                  NULL,       NULL,                           1 << 2,       0,           -1 },
+
+	/* Workspace 4: Social */
+	{ "org.telegram.desktop",    NULL,       NULL,                           1 << 3,       0,           -1 },
+	{ "TelegramDesktop",         NULL,       NULL,                           1 << 3,       0,           -1 },
+	{ "vesktop",                 NULL,       NULL,                           1 << 3,       0,           -1 },
+	{ "discord",                 NULL,       NULL,                           1 << 3,       0,           -1 },
+	{ "WebCord",                 NULL,       NULL,                           1 << 3,       0,           -1 },
+	{ "ArmCord",                 NULL,       NULL,                           1 << 3,       0,           -1 },
+
+	/* Workspace 5: Mail */
+	{ "Thunderbird",             NULL,       NULL,                           1 << 4,       0,           -1 },
+	{ "org.mozilla.Thunderbird", NULL,       NULL,                           1 << 4,       0,           -1 },
+
+	/* Workspace 6: Steam */
+	{ "Steam",                   NULL,       NULL,                           1 << 5,       0,           -1 },
+	{ "steam",                   NULL,       NULL,                           1 << 5,       0,           -1 },
+
+	/* Workspace 7: Torrent */
+	{ "qBittorrent",             NULL,       NULL,                           1 << 6,       0,           -1 },
+	{ "org.qbittorrent.qBittorrent", NULL,   NULL,                           1 << 6,       0,           -1 },
+
+	/* Workspace 8: WhatsApp */
+	{ "whatsapp-for-linux",      NULL,       NULL,                           1 << 7,       0,           -1 },
+
+	/* Workspace 9: Media/Music */
+	{ "Spotify",                 NULL,       NULL,                           1 << 8,       0,           -1 },
+	{ "org.fooyin.fooyin",       NULL,       NULL,                           1 << 8,       0,           -1 },
+	{ "tidal-hifi",              NULL,       NULL,                           1 << 8,       0,           -1 },
+	{ "foobar2000.exe",          NULL,       NULL,                           1 << 8,       0,           -1 },
+
+	/* Floating Rules */
+	{ "org.telegram.desktop",    NULL,       "Media viewer",                 1 << 3,       1,           -1 },
+	{ "TelegramDesktop",         NULL,       "Media viewer",                 1 << 3,       1,           -1 },
+	{ "Steam",                   NULL,       "Special Offers",               1 << 5,       1,           -1 },
+	{ "Steam",                   NULL,       "Steam - News",                 1 << 5,       1,           -1 },
+	{ "steam",                   NULL,       "Special Offers",               1 << 5,       1,           -1 },
+	{ "steam",                   NULL,       "Steam - News",                 1 << 5,       1,           -1 },
+	/* Bitwarden - dwm matches substring, so "Bitwarden" should be enough if title contains it */
+	{ NULL,                      NULL,       "Bitwarden",                    0,            1,           -1 },
 	{ "xdg-desktop-portal-gtk",  NULL,       NULL,                           0,            1,           -1 },
-
-	/* KeePassXC */
 	{ "KeePassXC",               NULL,       "Generate Password",            0,            1,           -1 },
+	{ "org.keepassxc.KeePassXC", NULL,       "Generate Password",            0,            1,           -1 },
 	{ "KeePassXC",               NULL,       "Browser Access Request",       0,            1,           -1 },
+	{ "org.keepassxc.KeePassXC", NULL,       "Browser Access Request",       0,            1,           -1 },
 
-	/* Scratchpads (Manual adaptation required if you don't have the patch) */
-	/* If you have the scratchpad patch, uncomment below: */
-	/* { "spterm",                  NULL,       NULL,                           SPTAG(0),     1,           -1 }, */
-	/* Otherwise, just float it: */
+	/* Scratchpads */
 	{ NULL,                      "spterm",   NULL,                           0,            1,           -1 },
 };
 

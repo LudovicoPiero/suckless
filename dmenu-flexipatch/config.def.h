@@ -33,7 +33,7 @@ static int restrict_return = 0;             /* -1 option; if 1, disables shift-r
 #endif // RESTRICT_RETURN_PATCH
 /* -fn option overrides fonts[0]; default X11 font or font set */
 #if PANGO_PATCH
-static char *font = "Iosevka 10";
+static char *font = "Iosevka 14";
 #else
 #if XRESOURCES_PATCH
 static char *fonts[] =
@@ -41,7 +41,7 @@ static char *fonts[] =
 static const char *fonts[] =
 #endif // XRESOURCES_PATCH
 {
-	"Iosevka:size=10"
+	"Iosevka:size=14"
 };
 #endif // PANGO_PATCH
 #if MANAGED_PATCH
@@ -100,21 +100,21 @@ const
 #endif // XRESOURCES_PATCH
 char *colors[][2] = {
 	/*               fg         bg       */
-	[SchemeNorm] = { "#bbbbbb", "#222222" },
-	[SchemeSel]  = { "#eeeeee", "#005577" },
-	[SchemeOut]  = { "#000000", "#00ffff" },
+	[SchemeNorm] = { "#a9b1d6", "#1a1b26" },
+	[SchemeSel]  = { "#1a1b26", "#7aa2f7" },
+	[SchemeOut]  = { "#1a1b26", "#7dcfff" },
 	#if BORDER_PATCH
-	[SchemeBorder] = { "#000000", "#005577" },
+	[SchemeBorder] = { "#1a1b26", "#7aa2f7" },
 	#endif // BORDER_PATCH
 	#if MORECOLOR_PATCH
-	[SchemeMid]  = { "#eeeeee", "#770000" },
+	[SchemeMid]  = { "#a9b1d6", "#1a1b26" },
 	#endif // MORECOLOR_PATCH
 	#if HIGHLIGHT_PATCH
-	[SchemeSelHighlight]  = { "#ffc978", "#005577" },
-	[SchemeNormHighlight] = { "#ffc978", "#222222" },
+	[SchemeSelHighlight]  = { "#ff9e64", "#7aa2f7" },
+	[SchemeNormHighlight] = { "#ff9e64", "#1a1b26" },
 	#endif // HIGHLIGHT_PATCH
 	#if HIGHPRIORITY_PATCH
-	[SchemeHp]   = { "#bbbbbb", "#333333" },
+	[SchemeHp]   = { "#a9b1d6", "#1a1b26" },
 	#endif // HIGHPRIORITY_PATCH
 	#if EMOJI_HIGHLIGHT_PATCH
 	[SchemeHover]  = { "#ffffff", "#353D4B" },
@@ -132,7 +132,7 @@ char *colors[][2] = {
 	#endif // CARET_SCHEME_PATCH
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
-static unsigned int lines      = 0;
+static unsigned int lines      = 5;
 #if GRID_PATCH
 /* -g option; if nonzero, dmenu uses a grid comprised of columns and lines */
 static unsigned int columns    = 0;
