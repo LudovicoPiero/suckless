@@ -6,18 +6,24 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachSystem [ "x86_64-linux" ] (
+      system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        
+
         # Common make flags to override hardcoded paths in config.mk
         sucklessMakeFlags = [
           "PREFIX=$(out)"
           "MANPREFIX=$(out)/share/man"
-          "X11INC=" 
-          "X11LIB=" 
-          "FREETYPEINC=" 
+          "X11INC="
+          "X11LIB="
+          "FREETYPEINC="
         ];
       in
       {
@@ -26,36 +32,54 @@
             pname = "dmenu-flexipatch";
             version = "5.4";
             src = ./dmenu-flexipatch;
-            buildInputs = with pkgs; [ xorg.libX11 xorg.libXinerama xorg.libXft zlib ];
+            buildInputs = with pkgs; [
+              xorg.libX11
+              xorg.libXinerama
+              xorg.libXft
+              zlib
+            ];
             installFlags = sucklessMakeFlags;
+
+            meta.mainProgram = "dmenu";
           };
 
           dwm = pkgs.stdenv.mkDerivation {
             pname = "dwm";
             version = "6.6";
             src = ./dwm;
-            buildInputs = with pkgs; [ xorg.libX11 xorg.libXinerama xorg.libXft ];
+            buildInputs = with pkgs; [
+              xorg.libX11
+              xorg.libXinerama
+              xorg.libXft
+            ];
             installFlags = sucklessMakeFlags;
+
+            meta.mainProgram = "dwm";
           };
 
           st = pkgs.stdenv.mkDerivation {
             pname = "st-flexipatch";
             version = "0.9.3";
             src = ./st-flexipatch;
-            nativeBuildInputs = [ pkgs.pkg-config pkgs.ncurses ];
-            buildInputs = with pkgs; [ 
-              xorg.libX11 
-              xorg.libXft 
-              xorg.libXrender 
-              imlib2 
+            nativeBuildInputs = [
+              pkgs.pkg-config
+              pkgs.ncurses
+            ];
+            buildInputs = with pkgs; [
+              xorg.libX11
+              xorg.libXft
+              xorg.libXrender
+              imlib2
             ];
             installFlags = sucklessMakeFlags;
-            
+
             # Ensure tic writes to the correct location
             preInstall = ''
               export TERMINFO=$out/share/terminfo
               mkdir -p $TERMINFO
             '';
+
+            meta.mainProgram = "st";
           };
 
           dwmblocks-async = pkgs.stdenv.mkDerivation {
@@ -63,8 +87,13 @@
             version = "unstable";
             src = ./dwmblocks-async;
             nativeBuildInputs = [ pkgs.pkg-config ];
-            buildInputs = with pkgs; [ xorg.libxcb xorg.xcbutil ];
+            buildInputs = with pkgs; [
+              xorg.libxcb
+              xorg.xcbutil
+            ];
             installFlags = [ "PREFIX=$(out)" ];
+
+            meta.mainProgram = "dwmblocks";
           };
         };
 
@@ -77,12 +106,12 @@
             self.packages.${system}.dwmblocks-async
           ];
         };
-        
+
         devShells.default = pkgs.mkShell {
-          inputsFrom = [ 
-            self.packages.${system}.dmenu 
-            self.packages.${system}.dwm 
-            self.packages.${system}.st 
+          inputsFrom = [
+            self.packages.${system}.dmenu
+            self.packages.${system}.dwm
+            self.packages.${system}.st
             self.packages.${system}.dwmblocks-async
           ];
           packages = [ pkgs.gnumake ];
@@ -90,3 +119,4 @@
       }
     );
 }
+
