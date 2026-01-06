@@ -54,20 +54,20 @@ static const Rule rules[] = {
     {"jetbrains", NULL, NULL, 1 << 0, 0, -1},
     {"Albion-Online", NULL, NULL, 1 << 0, 0, -1},
 
-    /* Workspace 2: Firefox */
-    {"firefox", NULL, NULL, 1 << 1, 0, -1},
-    {"firefox-esr", NULL, NULL, 1 << 1, 0, -1},
-    {"floorp", NULL, NULL, 1 << 1, 0, -1},
+    /* Workspace 2: Zen & Chromium */
+    {"zen", NULL, NULL, 1 << 1, 0, -1},
+    {"zen-beta", NULL, NULL, 1 << 1, 0, -1},
+    {"zen-browser", NULL, NULL, 1 << 1, 0, -1},
+    {"Brave-browser", NULL, NULL, 1 << 1, 0, -1},
+    {"Chromium-browser", NULL, NULL, 1 << 1, 0, -1},
+    {"chromium-browser", NULL, NULL, 1 << 1, 0, -1},
+    {"Google-chrome", NULL, NULL, 1 << 1, 0, -1},
+    {"chrome", NULL, NULL, 1 << 1, 0, -1},
 
-    /* Workspace 3: Zen & Chromium */
-    {"zen", NULL, NULL, 1 << 2, 0, -1},
-    {"zen-beta", NULL, NULL, 1 << 2, 0, -1},
-    {"zen-browser", NULL, NULL, 1 << 2, 0, -1},
-    {"Brave-browser", NULL, NULL, 1 << 2, 0, -1},
-    {"Chromium-browser", NULL, NULL, 1 << 2, 0, -1},
-    {"chromium-browser", NULL, NULL, 1 << 2, 0, -1},
-    {"Google-chrome", NULL, NULL, 1 << 2, 0, -1},
-    {"chrome", NULL, NULL, 1 << 2, 0, -1},
+    /* Workspace 3: Firefox */
+    {"firefox", NULL, NULL, 1 << 2, 0, -1},
+    {"firefox-esr", NULL, NULL, 1 << 2, 0, -1},
+    {"floorp", NULL, NULL, 1 << 2, 0, -1},
 
     /* Workspace 4: Social */
     {"org.telegram.desktop", NULL, NULL, 1 << 3, 0, -1},
