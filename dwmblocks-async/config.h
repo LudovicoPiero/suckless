@@ -25,6 +25,6 @@
       "cat /sys/class/power_supply/BAT1/capacity 2>/dev/null | sed 's/$/%/' " \
       "|| echo 'N/A'",                                                        \
       30, 0)                                                                  \
-    X("Doomsday: ", "date '+%A, %Y年%-m月%-d日'", 60, 0)
-
+    X("Doomsday: ", "date '+%A, %Y年%-m月%-d日'", 60, 0)                      \
+    X("T-Minus: ", "date '+%H:%M:%S'", 1, 0)
 #endif  // CONFIG_H
