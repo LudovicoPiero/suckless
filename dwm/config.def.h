@@ -25,7 +25,7 @@ static int showbar = 1; /* 0 means no bar */
 static int topbar = 1;  /* 0 means bottom bar */
 static char font[] = "Iosevka:size=14";
 static char dmenufont[] = "Iosevka:size=14";
-static const char *fonts[] = {font, "Noto Sans CJK:size=14",
+static const char *fonts[] = {font, "Noto Sans CJK JP:size=14",
                               "Symbols Nerd Font:size=14"};
 static char normbgcolor[] = "#1a1b26";
 static char normbordercolor[] = "#414868";
