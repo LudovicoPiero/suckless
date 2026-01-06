@@ -57,6 +57,15 @@
               mkdir -p $TERMINFO
             '';
           };
+
+          dwmblocks-async = pkgs.stdenv.mkDerivation {
+            pname = "dwmblocks-async";
+            version = "unstable";
+            src = ./dwmblocks-async;
+            nativeBuildInputs = [ pkgs.pkg-config ];
+            buildInputs = with pkgs; [ xorg.libxcb xorg.xcbutil ];
+            installFlags = [ "PREFIX=$(out)" ];
+          };
         };
 
         packages.default = pkgs.symlinkJoin {
@@ -65,6 +74,7 @@
             self.packages.${system}.dmenu
             self.packages.${system}.dwm
             self.packages.${system}.st
+            self.packages.${system}.dwmblocks-async
           ];
         };
         
@@ -73,6 +83,7 @@
             self.packages.${system}.dmenu 
             self.packages.${system}.dwm 
             self.packages.${system}.st 
+            self.packages.${system}.dwmblocks-async
           ];
           packages = [ pkgs.gnumake ];
         };
